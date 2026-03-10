@@ -26,5 +26,30 @@
  * @returns {string} "weak", "medium", "strong", or "very strong"
  */
 export function checkPasswordStrength(password) {
-  // Your code here
+
+  if(typeof password!=="string" || password.length===0) return "weak";
+  
+  // I'm using regex for now
+  let criteriaPassed = 0;
+
+  if(password.length>=8){
+    criteriaPassed++;
+  }
+  if(/[A-Z]/.test(password)){
+    criteriaPassed++;
+  }  
+  if(/[a-z]/.test(password)){
+    criteriaPassed++;
+  }
+  if(/[0-9]/.test(password)){
+    criteriaPassed++;
+  }
+  if(/[!@#$%^&*()_+\-=\[\]{}|;:,.<>?]/.test(password)){
+    criteriaPassed++;
+  }
+
+  if(criteriaPassed<=1) return "weak"
+  if(criteriaPassed<=3) return "medium"
+  if(criteriaPassed === 4) return "strong"
+  return "very strong"
 }

@@ -32,4 +32,40 @@
  */
 export function calculateCoffeePrice(size, type, extras = {}) {
   // Your code here
+  var total=0;
+  switch(size){
+    case "small":
+      total=3;
+      break;
+    case "medium":
+      total=4;
+      break;
+    case "large":
+      total=5;
+      break;
+    default:
+      return -1;
+  }
+  
+  switch(type){
+    case "regular":
+      break;
+    case "latte":
+      total+=1;
+      break;
+    case "cappuccino":
+      total+=1.50;
+      break;
+    case "mocha":
+      total+=2;
+      break;
+    default:
+      return -1;
+  }
+  
+  if(extras.whippedCream) total+=0.5;
+  if(extras.extraShot) total+=0.75;
+
+  total = Number(total.toFixed(2));
+  return total;
 }

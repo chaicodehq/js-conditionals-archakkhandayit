@@ -27,4 +27,50 @@
  */
 export function calculateTax(income) {
   // Your code here
+  // var bracket;
+  // var totalTax=0;
+  // if(income <=0) return 0;
+  
+  // if(income <=10000){
+  //   // noting
+  // } else{
+  //   if(income>10000 && income<=30000){
+  //     bracket = income - 10000;
+  //     totalTax+= bracket*10/100;
+  //   } else{
+  //     bracket = 20000;
+  //     totalTax +=bracket*10/100;
+  //     if(income>30000 && income <=70000){
+  //       bracket=income-30000;
+  //       totalTax+=bracket*20/100;
+  //     }else{
+  //       bracket=40000;
+  //       totalTax+=bracket*20/100;
+  //       if(income>70000){
+  //         bracket=income-70000;
+  //         totalTax+=bracket*30/100;
+  //       }
+  //     }
+  //   }
+  // }
+  // return totalTax;
+
+  // clean code
+  if(income <=0) return 0;
+  
+  var tax=0;
+  if(income>70000){
+    tax += (income-70000)* 0.30;
+    income =70000
+  }
+  if(income >30000){
+    tax += (income-30000)* 0.20;
+    income =30000;
+  }
+  if(income >10000){
+    tax +=(income-10000)* 0.10;
+  }
+
+  return tax;
+  
 }
